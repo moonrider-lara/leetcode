@@ -1,56 +1,19 @@
 class Solution {
     public String intToRoman(int num) {
         
-        String result = "";
-        int cnt = 0;
+        StringBuilder result = new StringBuilder();
+        
+        String ones[] = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
+        String tens[] = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+        String hrns[] = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+        String ths[]={"","M","MM","MMM"};
 
-        cnt = num/1000;
-        result += "M".repeat(cnt);
-        num %= 1000;
-
-        cnt = num/100;
-        if (cnt == 9) {
-            result += "CM"; 
-            cnt -= 9;
-        } else if (cnt >= 5) {
-            result += "D";
-            cnt-= 5;
-        } else if (cnt == 4) {
-            result += "CD";
-            cnt -= 4;
-        }
-        result += "C".repeat(cnt);
-        num %= 100;
+        result.append(ths[num / 1000]);
+        result.append(hrns[(num % 1000) / 100]);
+        result.append(tens[(num % 100) / 10]);
+        result.append(ones[num % 10]);
         
-        cnt = num/10;
-        if (cnt == 9) {
-            result += "XC"; 
-            cnt -= 9;
-        } else if (cnt >= 5) {
-            result += "L";
-            cnt-= 5;
-        } else if (cnt == 4) {
-            result += "XL";
-            cnt -= 4;
-        }
-        result += "X".repeat(cnt);
-        num %= 10;
-        
-        cnt = num;
-        if (cnt == 9) {
-            result += "IX"; 
-            cnt -= 9;
-        } else if (cnt >= 5) {
-            result += "V";
-            cnt-= 5;
-        } else if (cnt == 4) {
-            result += "IV";
-            cnt -= 4;
-        }
-        result += "I".repeat(cnt);
-        
-        
-        return result;
+        return result.toString();
         
     }
 }
