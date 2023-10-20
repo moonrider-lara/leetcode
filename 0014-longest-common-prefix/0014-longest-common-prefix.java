@@ -28,13 +28,10 @@ class Solution {
                 }else {
                     return result.toString();
                 }
-                
             }
-            
             charNum++;
         }
         
         return result.toString();
-        
     }
 }
