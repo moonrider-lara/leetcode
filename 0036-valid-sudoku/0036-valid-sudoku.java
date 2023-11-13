@@ -11,12 +11,8 @@ class Solution {
                         if (board[k][j] == c && k != i) 
                             return false;
                     }
-                    
                     int ipart = i/3;
                     int jpart = j/3;
-                    int iposition = i%3;
-                    int jposition = j%3;
-                    
                     for (int p1 = 0; p1 < 3; p1++) {
                         for (int p2 = 0; p2 < 3; p2++) {
                             int ipp = ipart*3;
@@ -25,8 +21,6 @@ class Solution {
                             if (board[ipp+p1][jpp+p2] == c && jpp+p2 != j && ipp+p1 != i ) return false;
                         }
                     }
-                    
-                    
                 } else if (c == '.') {
                     continue;
                 } else {
