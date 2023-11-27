@@ -14,8 +14,6 @@ class Solution {
             while (index < len) {
                 answer.append(s.charAt(index));
 
-                // If currRow is not the first or last row
-                // then we have to add one more character of current section.
                 if (currRow != 0 && currRow != numRows - 1) {
                     int charsInBetween = section - 2 * currRow;
                     int index2 = index + charsInBetween;
@@ -24,7 +22,6 @@ class Solution {
                         answer.append(s.charAt(index2));
                     }
                 }
-                // Jump to same row's first character of next section.
                 index += section;
             }
         }
